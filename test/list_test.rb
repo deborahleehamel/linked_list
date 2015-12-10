@@ -36,12 +36,37 @@ class ListTest < Minitest::Test
   end
 
   #PREPEND TEST
-  def test_if_can_add_3_nodes
+  def test_it_can_insert_in_position_two
     list = List.new
     list.append("boo")
     list.append("beep")
     list.prepend("blah")
     assert_equal list.head.data, "blah"
+  end
+
+  #insert_after TEST
+  def test_if_can_add_0_nodes
+    list = List.new
+    list.insert("D", 0)
+    assert_equal list.head.data, "D"
+  end
+
+  def test_if_can_add_3_nodes
+    list = List.new
+    list.append("A")
+    list.append("B")
+    list.append("C")
+    list.insert("D", 2)
+    assert_equal list.head.next_node.next_node.data, "D"
+  end
+
+  def test_if_cannot_enter_in_a_position_that_does_not_exist
+    list = List.new
+    list.append("A")
+    list.append("B")
+    list.append("C")
+
+    assert_equal(list.insert("D", 20), "position doesn't exist")
   end
 
 

@@ -69,6 +69,22 @@ def get_next_node(node)
   end
 end
 
+def insert(data, position)
+  if position > count
+    "position doesn't exist"
+  elsif position == 0
+    prepend(data)
+  else
+    new_node = Node.new(data)
+    before = @head
+    (position -1).times do
+      before =  before.next_node
+    end
+    after = before.next_node
+    before.next_node = new_node
+    new_node.next_node = after
+  end
+end
 
 
   def play
