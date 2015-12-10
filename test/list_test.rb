@@ -2,7 +2,7 @@ gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/list_jungle'
-require './lib/node'
+require './lib/node_jungle'
 
 class ListTest < Minitest::Test
   def test_if_can_add_a_new_node
