@@ -1,14 +1,13 @@
 require './lib/node_jungle'
 require "pry"
 
-
 class List
-attr_accessor :head
+  attr_accessor :head
 
   def initialize
     @head = nil
   end
-# when nothing in list head is nil
+  # when nothing in list head is nil
   def empty?
     @head == nil
   end
@@ -48,88 +47,61 @@ attr_accessor :head
     end
   end
 
-def count
-  @count = 0
-  unless empty?
-    #if not empty add 1 right away for head node
-    @count += 1
-    get_next_node(self.head)
-  end
-  @count
-end
-
-# after counting the head, count all next nodes
-def get_next_node(node)
-  # @count == 1
-  if node && node.next_node
-    temp_node = node.next_node
-    @count += 1
-    # @count == 2
-    get_next_node(temp_node)
-  end
-end
-
-def insert(data, position)
-  if position > count
-    "position doesn't exist"
-  elsif position == 0
-    prepend(data)
-  else
-    new_node = Node.new(data)
-    before = @head
-    (position -1).times do
-      before =  before.next_node
+  def count
+    @count = 0
+    unless empty?
+      #if not empty add 1 right away for head node
+      @count += 1
+      get_next_node(self.head)
     end
-    after = before.next_node
-    before.next_node = new_node
-    new_node.next_node = after
+    @count
   end
-end
 
+  # after counting the head, count all next nodes
+  def get_next_node(node)
+    # @count == 1
+    if node && node.next_node
+      temp_node = node.next_node
+      @count += 1
+      # @count == 2
+      get_next_node(temp_node)
+    end
+  end
+
+  def insert(data, position)
+    if position > count
+      "position doesn't exist"
+    elsif position == 0
+      prepend(data)
+    else
+      new_node = Node.new(data)
+      before = @head
+        (position -1).times do
+          before =  before.next_node
+        end
+      after = before.next_node
+      before.next_node = new_node
+      new_node.next_node = after
+    end
+  end
+
+  def includes?(word)
+    current = @head
+
+    until current.next_node == nil
+      if current.data == word
+        break
+      else
+        current = current.next_node
+        end
+      end
+      current.data == word
+  end
 
   def play
 
     #iterate through each node and save the data to a string beats = ""
-    #`say -r 500 -v Boing beats`
-  end
-
-
-  #def prepend  an element at the beginning of the list
-  #end
-  #
-  #
-  # def includes?
-  # gives back true or false whether the supplied value is in the list
-  # end
-  #
-  #
-  #
-  # def delete data
-  #   return nil if empty?
-  #   if @head.data == data
-  #     deleted = @head
-  #     @head = @head.next
-  #   else
-  #     before = @head.find_before(data)
-  #     return nil if before.nil?
-  #     deleted = before.next
-  #     before.next = deleted.next
-  #   end
-  #   deleted.data
-  # end
-  #
-  # def insert_after after, data
-  #   return push data if after.nil?
-  #   raise ElementNotFound.new if empty?
-  #   after_item = @head.find(after)
-  #   raise ElementNotFound.new if after_item.nil?
-  #   after_item.next = Item.new(data)
-  # end
-
-  def play
-
-    #iterate through each node and save the data to a string beats = ""
-    #`say -r 500 -v Boing beats`
+    #`say -r 500 -v "#{all}"`
   end
 
 end

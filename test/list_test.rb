@@ -72,7 +72,7 @@ class ListTest < Minitest::Test
 
 
   #POP TESTS
-  def test_if_can_pop_from_a_1_node_list
+  def test_if_can_remove_node_from_a_1_node_list
     list = List.new
     list.append("boo")
     list.pop
@@ -121,11 +121,35 @@ class ListTest < Minitest::Test
    def test_if_can_count_nodes_in_list
      list1 = List.new
      node1 = Node.new("boo")
-     node2 = Node.new("boo")
-     node3 = Node.new("boo")
+     node2 = Node.new("bop")
+     node3 = Node.new("bep")
      list1.append("boo")
-     list1.append("boo")
-     list1.append("boo")
+     list1.append("bop")
+     list1.append("bep")
      assert_equal 3, list1.count
    end
+
+   #INCLUDES TEST
+   def test_if_specific_data_included_in_list
+     list = List.new
+     list.append("boo")
+     list.append("bop")
+     list.append("bep")
+
+     assert_equal true, list.includes?("bop")
+   end
+
+   def test_if_specific_data_not_included_in_list
+     list  = List.new
+     list.append("boo")
+     list.append("bop")
+     list.append("bep")
+
+     assert_equal false, list.includes?("biz")
+   end
+
+
+   #FIND TEST
+
+   #ALL TEST
 end
