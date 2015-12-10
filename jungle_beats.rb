@@ -9,7 +9,7 @@ class JungleBeats
     @beats = beats
     split_beats = beats.split
     first_beat = split_beats[0]
-    @linked_list = JungleList.new(first_beat)
+    @list = JungleList.new(first_beat)
     split_beats[1..-1].each do |beat|
       list.append(beat)
     end
