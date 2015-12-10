@@ -9,7 +9,8 @@ class ListTest < Minitest::Test
   #TAIL TESTS
   def test_has_a_tail
      list = List.new
-     list.append("SUP")
+     list.append("bop")
+
      assert_equal true, list.head.tail?
   end
 
@@ -17,6 +18,7 @@ class ListTest < Minitest::Test
   def test_if_can_add_a_new_node
     list = List.new
     list.append("boo")
+
     assert_equal list.head.data, "boo"
   end
 
@@ -24,6 +26,7 @@ class ListTest < Minitest::Test
     list = List.new
     list.append("boo")
     list.append("beep")
+
     assert_equal list.head.next_node.data, "beep"
   end
 
@@ -32,6 +35,7 @@ class ListTest < Minitest::Test
     list.append("boo")
     list.append("beep")
     list.append("bop")
+
     assert_equal list.head.next_node.next_node.data, "bop"
   end
 
@@ -41,6 +45,7 @@ class ListTest < Minitest::Test
     list.append("boo")
     list.append("beep")
     list.prepend("blah")
+
     assert_equal list.head.data, "blah"
   end
 
@@ -76,6 +81,7 @@ class ListTest < Minitest::Test
     list = List.new
     list.append("boo")
     list.pop
+
     assert_equal list.head, nil
   end
 
@@ -84,6 +90,7 @@ class ListTest < Minitest::Test
     list.append("boo")
     list.append("beep")
     list.pop
+
     assert_equal list.head.next_node, nil
   end
 
@@ -93,12 +100,14 @@ class ListTest < Minitest::Test
     list.append("beep")
     list.append("bop")
     list.pop
+
     assert_equal list.head.next_node.next_node, nil
   end
 
   #COUNT TEST
   def test_if_count_is_0_on_empty_list
      list1 = List.new
+
      assert_equal 0, list1.count
    end
 
@@ -106,6 +115,7 @@ class ListTest < Minitest::Test
     list1 = List.new
     node1 = Node.new("boo")
     list1.append("boo")
+
     assert_equal 1, list1.count
   end
 
@@ -115,6 +125,7 @@ class ListTest < Minitest::Test
      node2 = Node.new("boo")
      list1.append("boo")
      list1.append("boo")
+
      assert_equal 2, list1.count
    end
 
@@ -126,6 +137,7 @@ class ListTest < Minitest::Test
      list1.append("boo")
      list1.append("bop")
      list1.append("bep")
+
      assert_equal 3, list1.count
    end
 
@@ -150,6 +162,23 @@ class ListTest < Minitest::Test
 
 
    #FIND TEST
+   def test_if_can_find
+   list = List.new
+   list.append("bev")
+   list.append("box")
+   list.append("bam")
+
+   assert_equal "bam", list.find(1, 2)
+  end
 
    #ALL TEST
+   def test_all
+    list = List.new
+    list.append("bip")
+    list.append("boo")
+    list.append("bop")
+    list.append("beg")
+    binding.pry
+    assert_equal "bip boo bop beg", list.all
+  end
 end

@@ -98,10 +98,34 @@ class List
       current.data == word
   end
 
-  def play
+  def find(index, amount)
+    collection = []
+    current = @head
 
+    until current == nil
+      collection << current.data.split
+      current = current.next_node
+    end
+
+    collection = collection.flatten!.values_at(amount..index + amount - 1).join(" ")
+  end
+
+  def all
+  all = ""
+  current = @head
+
+  until current == nil
+    all << current.data + " "
+    current = current.next_node
+  end
+
+    all.strip
+  end
+
+  def play
     #iterate through each node and save the data to a string beats = ""
-    #`say -r 500 -v "#{all}"`
+    `say -r 500 -v Boing "#{all}"`
+    count
   end
 
 end
