@@ -35,6 +35,17 @@ class ListTest < Minitest::Test
     assert_equal list.head.next_node.next_node.data, "bop"
   end
 
+  #PREPEND TEST
+  def test_if_can_add_3_nodes
+    list = List.new
+    list.append("boo")
+    list.append("beep")
+    list.prepend("blah")
+    assert_equal list.head.data, "blah"
+  end
+
+
+
   #POP TESTS
   def test_if_can_pop_from_a_1_node_list
     list = List.new

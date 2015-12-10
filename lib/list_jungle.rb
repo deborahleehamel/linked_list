@@ -5,6 +5,9 @@ require "pry"
 class List
 attr_accessor :head
 
+  def initialize
+    @head = nil
+  end
 # when nothing in list head is nil
   def empty?
     @head == nil
@@ -22,6 +25,12 @@ attr_accessor :head
       end
       current_node.next_node = node
     end
+  end
+
+  def prepend(data)
+    new_node = Node.new(data)
+    new_node.next_node = @head
+    @head = new_node
   end
 
   def pop
