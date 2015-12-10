@@ -1,7 +1,8 @@
 require './lib/node_jungle'
 require "pry"
-class List
 
+
+class List
 attr_accessor :head
 
 # when nothing in list head is nil

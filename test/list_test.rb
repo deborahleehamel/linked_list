@@ -5,6 +5,15 @@ require './lib/list_jungle'
 require './lib/node_jungle'
 
 class ListTest < Minitest::Test
+
+  #TAIL TESTS
+  def test_has_a_tail
+     list = List.new
+     list.append("SUP")
+     assert_equal true, list.head.tail?
+  end
+
+  #APPEND TESTS
   def test_if_can_add_a_new_node
     list = List.new
     list.append("boo")
@@ -26,6 +35,7 @@ class ListTest < Minitest::Test
     assert_equal list.head.next_node.next_node.data, "bop"
   end
 
+  #POP TESTS
   def test_if_can_pop_from_a_1_node_list
     list = List.new
     list.append("boo")
@@ -50,25 +60,20 @@ class ListTest < Minitest::Test
     assert_equal list.head.next_node.next_node, nil
   end
 
-  def test_has_a_tail
-     list = List.new
-     list.append("SUP")
-     assert_equal true, list.head.tail?
-   end
-
-   def test_if_count_is_0_on_empty_list
+  #COUNT TEST
+  def test_if_count_is_0_on_empty_list
      list1 = List.new
      assert_equal 0, list1.count
    end
 
-   def test_if_can_count_nodes_in_list
-     list1 = List.new
-     node1 = Node.new("boo")
-     list1.append("boo")
-     assert_equal 1, list1.count
-   end
+  def test_if_can_count_nodes_in_list
+    list1 = List.new
+    node1 = Node.new("boo")
+    list1.append("boo")
+    assert_equal 1, list1.count
+  end
 
-   def test_if_can_count_nodes_in_list
+  def test_if_can_count_nodes_in_list
      list1 = List.new
      node1 = Node.new("boo")
      node2 = Node.new("boo")
@@ -87,6 +92,4 @@ class ListTest < Minitest::Test
      list1.append("boo")
      assert_equal 3, list1.count
    end
-
-
 end
