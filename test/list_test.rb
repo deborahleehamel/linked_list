@@ -178,7 +178,7 @@ class ListTest < Minitest::Test
     list.append("boo")
     list.append("bop")
     list.append("beg")
-    binding.pry
+    # binding.pry
     assert_equal "bip boo bop beg", list.all
   end
 end
