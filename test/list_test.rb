@@ -52,7 +52,8 @@ class ListTest < Minitest::Test
 
   def test_has_a_tail
      list = List.new
-     assert_equal nil, list.tail?
+     list.append("SUP")
+     assert_equal true, list.head.tail?
    end
 
    def test_if_count_is_0_on_empty_list
