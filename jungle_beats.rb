@@ -3,13 +3,13 @@ require_relative '../lib/ist.rb'
 require 'pry'
 
 class JungleBeats
-  attr_accessor :beats, :linked_list
+  attr_accessor :beats, :list
 
   def initialize(beats)
     @beats = beats
     split_beats = beats.split
     first_beat = split_beats[0]
-    @list = JungleList.new(first_beat)
+    @list = List.new(first_beat)
     split_beats[1..-1].each do |beat|
       list.append(beat)
     end
@@ -74,6 +74,6 @@ if run_from_file
   beats = File.read(input_file)
   sounds_count = beats.split.length
 
-  JungleBeats.new(beats).play
+List.new(beats).play
   puts "Played #{sounds_count} sounds from `#{input_file}`"
 end
