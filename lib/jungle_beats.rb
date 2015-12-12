@@ -1,5 +1,5 @@
 #jungle_beats.rb
-require_relative './lib/list_jungle.rb'
+require_relative './lib/list_jungle'
 require 'pry'
 
 class JungleBeats
